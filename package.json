@@ -1,0 +1,21 @@
+{
+  "author": "Nick Payne",
+  "name": "GoodbyeJsUnit",
+  "description": "A script that takes a JsUnit test and attempts to upgrade it to a JsTestDriver test.",
+  "version": "0.0.0",
+  "main": "./upgrade.js",
+  "scripts": {
+    "test": "nodeunit ./test"
+  },
+  "dependencies": {
+    "hogan": "1.0.5-dev",
+    "optimist": "0.3.4"
+  },
+  "devDependencies": {
+    "nodeunit": "0.7.4"
+  },
+  "optionalDependencies": {},
+  "engines": {
+    "node": "*"
+  }
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="foo.js"></script>
+        <title>Test</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            function testOne() {
+                if (true) {
+                    doSomething();
+                }
+                assertTrue("blah");
+            }
+
+            function testTwo() {
+                assertEqual(getValue(), "foo");
+            }
+        </script>
+    </body>
+</html>
