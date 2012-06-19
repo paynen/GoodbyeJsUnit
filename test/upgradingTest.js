@@ -9,9 +9,10 @@ exports.testUpgradingBasicTest = function(test) {
                 if (err) throw err;
                 
                 // Run through processor
-                var result = new JsUnitTestProcessor().process(data); 
+                var result = new JsUnitTestProcessor().process("basicTest", data); 
                 
                 // Verify it matches expected file
+                test.equal(result.testName, "basicTest");
                 test.equal(result.tests.length, 2, "There should be two tests");
                 test.equal(result.tests[0].name, "testOne");
                 test.equal(result.tests[0].code.match("testOne"), null);
@@ -29,7 +30,7 @@ exports.testUpgradingTestWithOtherCode = function(test) {
                 if (err) throw err;
                 
                 // Run through processor
-                var result = new JsUnitTestProcessor().process(data); 
+                var result = new JsUnitTestProcessor().process("otherCodeTest", data); 
                 
                 // Verify it matches expected file
                 test.equal(result.tests.length, 2, "There should be two tests");

@@ -1,9 +1,9 @@
 (function(){
-TestCase({{filename}}, {
+TestCase("{{testName}}", {
 {{#tests}}
-  "{{name}}" : {{code}},
+  "{{name}}" : {{{code}}}{{^last}},{{/last}}
 {{/tests}}
 
-})
-{{othercode}}
+});
+{{{othercode}}}
 }());

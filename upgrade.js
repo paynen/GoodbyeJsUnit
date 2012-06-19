@@ -1,4 +1,5 @@
 var fs = require("fs"),
+    path = require("path"),
     JsUnitTestProcessor = require("./jsUnitTestProcessor.js"),
     hogan = require("hogan"),
     argv = require("optimist").usage("Given a JsUnit test this will generate a JsTestDriver test, with the same tests. \n\nUsage: $0 jsunitTest.html")
@@ -10,8 +11,7 @@ fs.readFile(filename,
             function (err, data) {
               if (err) throw err;
               // Run through processor
-              var result = new JsUnitTestProcessor().process(data); 
-              result.filename = filename;
+              var result = new JsUnitTestProcessor().process(path.basename(filename, ".html"), data); 
               fs.readFile("./template/jsTestDriver.mustache",
                           "UTF-8",
                           function (err, data) {

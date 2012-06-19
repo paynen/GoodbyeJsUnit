@@ -4,7 +4,7 @@ function JsUnitTestProcessor() {
 
 JsUnitTestProcessor.prototype._testFunctionRegex = null;
 
-JsUnitTestProcessor.prototype.process = function(inputString) {
+JsUnitTestProcessor.prototype.process = function(testName, inputString) {
   var match,
       name,
       lastMatch,
@@ -19,12 +19,12 @@ JsUnitTestProcessor.prototype.process = function(inputString) {
     lastMatchingIndex = this._testFunctionRegex.lastIndex;
   }
 
-  console.log(lastMatchingIndex, inputString.lastIndexOf("</script>"));
+  tests[tests.length - 1].last = true;
   otherCode = inputString.substring(lastMatchingIndex,
                                     inputString.lastIndexOf("</script>")).trim();
-  console.log("othercode", otherCode);
 
   return {
+    "testName": testName,
     "tests": tests,
     "otherCode": otherCode
   };

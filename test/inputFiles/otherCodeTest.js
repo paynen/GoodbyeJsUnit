@@ -1,18 +1,18 @@
 (function(){
-TestCase(test\inputFiles\otherCodeTest.html, {
+TestCase("otherCodeTest", {
   "testOne" : function () {
                 if (true) {
                     doSomething();
                 }
-                assertTrue(&quot;blah&quot;);
+                assertTrue("blah");
             }
 
             ,
   "testTwo" : function () {
-                assertEqual(getValue(), &quot;foo&quot;);
+                assertEqual(getValue(), "foo");
             }
             
-            ,
+            
 
 })
 
