@@ -38,7 +38,7 @@ exports.testUpgradingTestWithOtherCode = function(test) {
                 test.equal(result.tests[0].code.match("testOne"), null);
                 test.equal(result.tests[1].name, "testTwo");
                 test.ok(result.otherCode, "There should be other code");
+                test.equal(result.otherCode.charAt(0), "/");
                 test.done();
               });
 };
-
