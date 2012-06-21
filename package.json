@@ -10,7 +10,8 @@
   },
   "dependencies": {
     "hogan": "1.0.5-dev",
-    "optimist": "0.3.4"
+    "optimist": "0.3.4",
+    "cheerio": "0.8.3"
   },
   "devDependencies": {
     "nodeunit": "0.7.4"

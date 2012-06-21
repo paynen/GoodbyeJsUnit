@@ -42,3 +42,41 @@ exports.testUpgradingTestWithOtherCode = function(test) {
                 test.done();
               });
 };
+
+exports.testUpgradingTestWithDomAroundTheTests = function(test) {
+  // Read JsUnit test file
+  fs.readFile("./test/inputFiles/domTest.html",
+              "UTF-8",
+              function (err, data) {
+                if (err) throw err;
+                
+                // Run through processor
+                var result = new JsUnitTestProcessor().process("precedingCodeTest", data); 
+                
+                // Verify it matches expected file
+                test.equal(result.tests.length, 3, "There should be three tests");
+                test.ok(result.otherCode, "There should be other code");
+                test.ok(result.otherCode.indexOf("var one") == 0, "There other code should start with the var statement");
+                test.ok(result.tests[2].code.match("<div>before</div><div>after</div>"));
+                test.done();
+              });
+};
+
+exports.testUpgradingTestWithDomAndSetup = function(test) {
+  // Read JsUnit test file
+  fs.readFile("./test/inputFiles/domWithSetupTest.html",
+              "UTF-8",
+              function (err, data) {
+                if (err) throw err;
+                
+                // Run through processor
+                var result = new JsUnitTestProcessor().process("precedingCodeTest", data); 
+                
+                // Verify it matches expected file
+                test.equal(result.tests.length, 3, "There should be three tests");
+                test.ok(result.otherCode, "There should be other code");
+                test.ok(result.otherCode.indexOf("var one") == 0, "There other code should start with the var statement");
+                test.ok(result.tests[2].code.match("<div>before</div><div>after</div>"));
+                test.done();
+              });
+};
